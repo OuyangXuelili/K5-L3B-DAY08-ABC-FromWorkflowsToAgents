@@ -13,7 +13,7 @@ Tôi phụ trách shape A `workflow` (`src/lab8/shapes/workflow.py`) và độ �
 
 ## 3. Đóng góp cụ thể
 
-Commit chính: `<điền hash sau khi commit>`.
+Commit chính: `8e2e45b`.
 
 Code: `src/lab8/shapes/workflow.py` thay stub `not_implemented` bằng bảy bước cố định. Đó là `get_claim_view` → kiểm `order_id` → `lookup_order` theo principal → `compute_compensation` → quote = 0 thì `denied` → `durability.issue_refund(conn, claim_id, <quote đầy đủ>, crash_at=crash_at)` → map kết quả của host. Mọi nhánh return đi qua cùng một hàm kết thúc dùng `common.finish()`, nên trace luôn được ghi và `refund_effects` / `committed_audit_count` luôn lấy từ ledger.
 
