@@ -52,5 +52,5 @@ Commit chính: `64a747d` (orchestrator + test + trace audit); commit báo cáo: 
 ## 6. Tự đánh giá
 
 - Hoàn thành phần orchestrator, handoff, test bảo mật, trace audit và research card.
-- Hạn chế: workflow/single chưa được owner hoàn thành tại thời điểm rà nên audit ba kiến trúc mới xác nhận phần trace; cần chạy lại `trace_audit` sau tích hợp. Kết luận ablation giới hạn ở 14 claim public × 5 seed và MockLLM.
-- Tự đánh giá mức hoàn thành phần việc: 9/10 (còn phụ thuộc phần của hai shape còn lại để xác nhận an toàn toàn nhóm).
+- Hạn chế tại thời điểm bàn giao phần C: workflow/single còn stub nên audit ban đầu chỉ xác nhận trace của chúng. Sau tích hợp đã chạy lại đủ bốn shape: 280/280 trace hợp lệ và mới, 0 leak trial; orchestrator đạt 70/70 public trial. Kết luận vẫn giới hạn ở MockLLM và 14 claim × 5 seed, chưa có kết quả hidden.
+- Tự đánh giá lúc bàn giao phần C: 9/10; đây là nhận xét của thành viên tại mốc đó. Các kết quả tích hợp mới nằm trong báo cáo nhóm và ADR, không tự thay điểm tự nhận xét cá nhân.

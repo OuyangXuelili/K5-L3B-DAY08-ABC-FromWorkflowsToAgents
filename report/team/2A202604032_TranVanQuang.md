@@ -4,14 +4,14 @@
 
 - Họ tên: Trần Văn Quang
 - MSSV: 2A202604032
-- Email: chưa cung cấp.
-- GitHub cá nhân: chưa xác nhận; không suy ra tài khoản cá nhân từ tài khoản sở hữu repo nhóm.
+- Email: không công khai.
+- GitHub dùng để commit phần này: OuyangXuelili.
 
 ## 2. Phần việc phụ trách
 
 Phần 2 — Single Agent/ReAct trong [single.py](../../src/lab8/shapes/single.py), test bổ sung trong [test_team_single.py](../../src/tests/test_team_single.py). Phần này có thể chạy riêng với host, MockLLM và dữ liệu public có sẵn, không phụ thuộc hai shape workflow/orchestrator.
 
-Phạm vi báo cáo là triển khai và kiểm thử Single Agent. Code workflow và orchestrator đã được đồng bộ từ `main` để kiểm tra tích hợp. Benchmark so sánh bốn kiến trúc và ADR chung thuộc gói bàn giao của cả nhóm.
+Phạm vi chính là triển khai và kiểm thử Single Agent. Sau khi đồng bộ workflow và orchestrator, nhóm đã chạy benchmark bốn shape, audit và hoàn thiện ADR chung; bằng chứng chốt tại `c68da30`.
 
 ## 3. Đóng góp cụ thể
 
@@ -38,6 +38,8 @@ Chạy ngày 17/11/2026 trên Windows, Python 3.12.13, MockLLM offline. Mọi l�
 | Cổng host trước khi tích hợp hai phần còn lại | 78 passed, 248 deselected: 54 test gốc + 24 trường hợp mới |
 | Cổng host sau khi đồng bộ workflow/orchestrator | 137 passed, 248 deselected |
 | Toàn bộ ma trận student sau tích hợp | 248 passed, 137 deselected |
+| Benchmark Single Agent sau tích hợp | 70/70 public trial, pass^5 14/14, variance 0, cost/success 30,5314 VND mô phỏng |
+| Audit Single Agent sau tích hợp | 70/70 trace hợp lệ và mới, 0 leak trial theo index public |
 
 Lệnh ma trận riêng đã chạy:
 
@@ -79,6 +81,4 @@ Tham chiếu: [business rules](../../docs/business_rules.md), [output/trace cont
 
 Đánh giá kỹ thuật hiện tại: Single Agent qua ma trận public riêng và các trường hợp bổ sung nêu trên. Các file host, policy, durability, metrics, config và public data được giữ nguyên. Không sử dụng API key hoặc gọi model thật.
 
-Giới hạn: chưa được chấm bằng hidden grader; các kết quả public không chứng minh đã đạt ngưỡng hidden. MockLLM chỉ là mô phỏng theo seed, chi phí là VND mô phỏng và latency `unavailable`. Kiểm thử tích hợp 137/248 đã chạy sau khi nhận code hai thành viên còn lại; báo cáo này chưa chốt benchmark tổng hợp hoặc ADR của nhóm.
-
-Nhận xét cá nhân về mức độ hiểu code và phần việc đã tự thực hiện: người nộp bổ sung, xác nhận theo thực tế trước khi nộp.
+Giới hạn: chưa được chấm bằng hidden grader; public không chứng minh đã đạt ngưỡng hidden. MockLLM là mô phỏng theo seed, chi phí là VND mô phỏng và latency unavailable. Sau tích hợp, Single Agent đạt cùng độ đúng public với workflow nhưng có cost/success cao hơn (30,53 so với 28,87 VND); nhóm chọn workflow trong ADR.

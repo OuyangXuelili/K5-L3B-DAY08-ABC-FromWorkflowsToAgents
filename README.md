@@ -4,6 +4,21 @@ AI20K K5, ngày 8. Nhóm xử lý claim hoàn phí vận chuyển của công ty
 
 **Loại bài:** Nhóm · **Thời lượng:** 4 giờ tại lớp (13:30–17:30) · **Deadline:** lớp sáng 23h59 GMT+7 ngày lab; lớp chiều/tối 11h59 GMT+7 ngày hôm sau ([SUBMISSION.md](SUBMISSION.md#deadline-gmt7))
 
+## Kết quả nhóm ABC — L3B
+
+Ba shape của nhóm đã triển khai và tích hợp trên `main`. Nhóm giữ tên repo L3B theo xác nhận của thành viên.
+
+| Shape | Public pass | Pass cả 5 seed | VND mô phỏng/success |
+| --- | ---: | ---: | ---: |
+| workflow — chọn | 70/70 | 14/14 | 28,87 |
+| single | 70/70 | 14/14 | 30,53 |
+| orchestrator | 70/70 | 14/14 | 57,17 |
+| swarm tham chiếu | 69/70 | 13/14 | 49,57 |
+
+Kiểm thử tích hợp: **137 host pass, 248 student pass**, crash **20/20**; audit bốn shape có **280/280** trace hợp lệ và mới, **0 leak trial** theo index public. Chưa có hidden pack/điểm hidden của giảng viên. Runtime chỉ dùng MockLLM, không gọi API thật; latency `unavailable`.
+
+[Báo cáo nhóm](report/team/group_report.md) · [ADR chọn workflow](report/team/decision_adr.md) · [Research card và ablation](report/team/research_card.md) · [Thành viên/đóng góp](TEAM.md). Bằng chứng do công cụ sinh trong [src/reports](src/reports/README.md). Không nhận bonus từ kết quả public.
+
 ## Mục tiêu học tập
 
 - Cài cùng một quy trình xử lý claim theo bốn kiến trúc, cùng chữ ký `run_claim`, và hiểu ranh giới: số tiền, approval, chống ghi trùng do **code** quyết; model chỉ đọc và soạn chữ.
@@ -29,7 +44,7 @@ AI20K K5, ngày 8. Nhóm xử lý claim hoàn phí vận chuyển của công ty
 
 ## Việc nhóm làm
 
-Repo này là starter. Các phần đã chạy được ngay: swarm tham chiếu, world, MockLLM, host. Ba shape còn lại do nhóm viết.
+Bản nhóm đã hoàn thành workflow, single và orchestrator; swarm tham chiếu, world, MockLLM và host giữ từ template. Bảng dưới mô tả phần triển khai tương ứng.
 
 | Shape | Việc của nhóm | Ai tính tiền và gọi ghi refund |
 | --- | --- | --- |
@@ -40,7 +55,7 @@ Repo này là starter. Các phần đã chạy được ngay: swarm tham chiếu
 
 Ở cả bốn shape, `durability.issue_refund` là cửa của host: host kiểm approval, trần theo đơn và idempotency rồi mới ghi ledger. Shape truyền **quote đầy đủ**, không tự trừ phần đã hoàn trước đó.
 
-Code viết vào `src/lab8/shapes/workflow.py`, `single.py`, `orchestrator.py`. Đầu mỗi file có hướng dẫn từng bước, chỗ cần sửa có dòng `TODO CP2` và `TODO CP3`. Giữ nguyên chữ ký hàm:
+Code của ba shape nằm trong `src/lab8/shapes/workflow.py`, `single.py`, `orchestrator.py`. Chữ ký hàm giữ nguyên theo đề:
 
 ```python
 run_claim(claim_id: str, *, seed: int, store_path: str, crash_at: str | None = None) -> RunResult
@@ -84,7 +99,7 @@ python -m pytest -q
 
 PowerShell báo `running scripts is disabled`, hoặc bạn dùng cmd / Git Bash: xem [src/README.md](src/README.md#cài-đặt-theo-hệ-điều-hành).
 
-Smoke đúng in ra `lab8.smoke pass`. `python -m pytest -q` (cổng host) phải xanh trước khi chia việc và giữ xanh suốt buổi. Bộ test student (`-m student`) lúc đầu **đỏ là bình thường** vì ba shape còn là stub; số đỏ/xanh mong đợi ghi ở [CHECKPOINTS.md](CHECKPOINTS.md).
+Smoke đúng in ra `lab8.smoke pass`. Bản nhóm hiện có `137 passed` ở cổng host và `248 passed` ở bộ student. Các số đỏ/xanh trong [CHECKPOINTS.md](CHECKPOINTS.md) mô tả quá trình làm từ starter; chúng không phải trạng thái hiện tại của repo nhóm.
 
 ## Đọc gì, khi nào
 

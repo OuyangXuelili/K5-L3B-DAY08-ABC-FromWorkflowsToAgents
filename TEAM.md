@@ -2,23 +2,22 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: ABC
+- Lớp: L3B, theo xác nhận của nhóm; giữ tên repo hiện tại.
+- Repo nhóm: `K5-L3B-DAY08-ABC-FromWorkflowsToAgents`.
+- URL repo: https://github.com/OuyangXuelili/K5-L3B-DAY08-ABC-FromWorkflowsToAgents
+- Nhánh nộp: `main`.
+- Commit code và bằng chứng chốt: `c68da30d448de039686252a9c519cd39c316d524`; commit tài liệu tiếp theo chỉ hoàn thiện hồ sơ.
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Trương Văn Phong | 2A202604091 | phongtruongvan2005@gmail.com | vanphong205 | Orchestrator + an toàn dữ liệu |
-|   2 | Nguyễn Hoàng Ân | 2A202604025 | | | Workflow + nghiệp vụ + durability |
-|   3 | Trần Văn Quang | 2A202604032 | | | Single Agent/ReAct + kiểm thử phần 2 |
+|   2 | Nguyễn Hoàng Ân | 2A202604025 | Không công khai tại đây | hoangan06 | Workflow + nghiệp vụ + durability |
+|   3 | Trần Văn Quang | 2A202604032 | Không công khai | OuyangXuelili (tài khoản commit) | Single Agent/ReAct + kiểm thử phần 2 |
 
-Gợi ý chia vai:
-
-- Nhóm 6 người: integration; workflow; single agent; orchestrator; ledger/policy/crash; eval/report.
-- Nhóm 4 người: workflow + integration; single; orchestrator + handoff; ledger + evaluation.
+Ba người tích hợp và đối chiếu kết quả chung: 137 test host, 248 test student; benchmark 4 shape × 14 claim × 5 seed. Chi tiết trong [báo cáo nhóm](report/team/group_report.md), [ADR](report/team/decision_adr.md) và [research card](report/team/research_card.md).
 
 ## Bảng đóng góp
 
@@ -38,20 +37,8 @@ Mỗi thành viên đồng thời tạo một báo cáo riêng trong `report/` t
 report/team/MSSV_HoTen.md
 ```
 
-Ví dụ: `report/team/20241234_NguyenVanAn.md`.
+- [Nguyễn Hoàng Ân](report/team/2A202604025_NguyenHoangAn.md)
+- [Trần Văn Quang](report/team/2A202604032_TranVanQuang.md)
+- [Trương Văn Phong](report/team/2A202604091_TruongVanPhong.md)
 
-Sao chép mục dưới đây cho từng thành viên.
-
-## MSSV_HoTen
-
-### Phần việc phụ trách
-
--
-
-### Đóng góp cụ thể
-
--
-
-### Bằng chứng
-
--
+Giữ file mẫu để đối chiếu cấu trúc. Email không được tự điền khi chưa được chủ tài khoản cung cấp. Mỗi thành viên tự nộp link repo nhóm trên LMS; việc push repo không thay việc nộp cá nhân.

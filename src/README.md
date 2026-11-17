@@ -12,7 +12,7 @@ Toàn bộ code, dữ liệu, config và test của lab nằm trong thư mục n
 
 | Đường dẫn | Nội dung |
 | --- | --- |
-| `lab8/shapes/` | 4 shape. `swarm_reference.py` có sẵn; `workflow.py`, `single.py`, `orchestrator.py` là stub nhóm phải viết |
+| `lab8/shapes/` | 4 shape. Nhóm đã hoàn thành workflow, single, orchestrator; swarm_reference giữ đối chứng từ đề |
 | `lab8/` | Host (policy, ledger, handoff, durability), MockLLM, runner, benchmark, grader, `check_submission` |
 | `config/` | `autonomy_policy.yaml`, `pricing.yaml`, `tools.manifest.v1.1.yaml` |
 | `data/` | Fixture public: `public_claims.jsonl`, `public_world_state.json` |
@@ -97,16 +97,17 @@ Mỗi lệnh nằm trên một dòng, nên copy được vào PowerShell, cmd ha
 | Cổng đầu buổi (host) | `python -m pytest -q` |
 | Tự chấm T01–T14 trên 4 shape | `python -m pytest -q -m student -o addopts=` |
 | Tự chấm một shape | `python -m pytest -q -m student -o addopts= -k workflow` |
+| Tự chấm riêng single | `python -m pytest -q tests/test_public_matrix.py -m student -o addopts= -k "single and not workflow and not orchestrator and not swarm"` |
 | Chạy một claim | `python -m lab8.run --shape swarm --claim-id C-001 --seed 11 --db data/run.sqlite` |
 | Chạy một claim với crash | `python -m lab8.run --shape workflow --claim-id C-012 --seed 11 --db data/crash.sqlite --crash-at after_effect_before_checkpoint` |
 | Benchmark 4 shape × 5 seed | `python -m lab8.benchmark --shapes workflow,single,orchestrator,swarm --cases data/public_claims.jsonl --seeds 11,22,33,44,55 --out reports/benchmark.json` |
 | Crash suite 20 điểm | `python -m lab8.crash_test --count 20 --out reports/crash.json` |
-| Rà trace + leak ba shape | `python -m lab8.trace_audit --shapes workflow,single,orchestrator --seeds 11,22,33,44,55 --out reports/trace_audit.json` |
+| Rà trace + leak bốn shape | `python -m lab8.trace_audit --shapes workflow,single,orchestrator,swarm --seeds 11,22,33,44,55 --out reports/trace_audit.json` |
 | Demo phản ví dụ (checkpoint không thay được ledger) | `python -m lab8.demo.buggy_workflow` |
 
-`python -m pytest -q` là cổng đầu buổi. Bộ này kiểm contract, compensation, approval, idempotency, handoff, crash 20/20, trần hoàn tiền theo đơn, approval đúng claim, và swarm trên T01–T10, T13, T14. Phải xanh hết trước khi chia việc, và phải giữ xanh suốt buổi. Kết quả mong đợi lúc mới clone: `52 passed, 248 deselected`, không có dòng `failed`. Nhóm thêm test vào cổng host thì số passed tăng theo.
+`python -m pytest -q` là cổng host, kiểm contract, compensation, approval, idempotency, handoff, crash, trần hoàn tiền theo đơn và test nhóm. Bản nhóm đã chạy **137 passed, 248 deselected**, gồm 54 test gốc và 83 trường hợp bổ sung. Số test tăng nếu nhóm thêm kiểm thử sau này.
 
-Ma trận student lúc mới clone: **186 failed, 62 passed**. 62 test swarm xanh, 3 shape stub × 62 test đỏ. Shape nào làm xong thì 62 test của shape đó phải xanh.
+Ma trận student ở bản nhóm: **248 passed, 137 deselected**, tương ứng 62 test/shape. Con số **186 failed, 62 passed** là trạng thái starter khi ba shape còn stub. Bộ lọc `-k single` đơn lẻ còn khớp tên test của shape khác, vì vậy dùng lệnh lọc đầy đủ ở bảng nếu chỉ kiểm phần single.
 
 `--crash-at` nhận `before_effect` (crash trước khi ghi refund) `after_effect_before_checkpoint` (đã ghi refund nhưng chưa kịp lưu checkpoint) hoặc `after_checkpoint` (đã lưu checkpoint). Chạy lại cùng lệnh không có `--crash-at` trên cùng DB để mô phỏng resume.
 
