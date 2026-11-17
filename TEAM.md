@@ -11,7 +11,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
+|   1 | Trương Văn Phong | 2A202604091 | phongtruongvan2005@gmail.com | vanphong205 | Orchestrator + an toàn dữ liệu |
 |   2 |        |      |       |        |         |
 
 Gợi ý chia vai:
@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Trương Văn Phong (2A202604091) | Orchestrator + an toàn dữ liệu | `64a747d` — feat(orchestrator): sanitized handoff, read-only investigators, trace audit | `src/tests/test_orchestrator_handoff.py` (19 test), `src/tests/test_trace_audit.py` (5 test) |
 
 ## Cá nhân
 
