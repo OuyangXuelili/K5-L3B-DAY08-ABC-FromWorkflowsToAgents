@@ -11,7 +11,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Trương Văn Phong | 2A202604091 | (cần điền) | (cần điền) | Orchestrator + an toàn dữ liệu |
+|   1 | Trương Văn Phong | 2A202604091 | phongtruongvan2005@gmail.com | vanphong205 | Orchestrator + an toàn dữ liệu |
 |   2 |        |      |       |        |         |
 
 Gợi ý chia vai:

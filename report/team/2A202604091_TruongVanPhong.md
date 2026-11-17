@@ -4,8 +4,8 @@
 
 - Họ tên: Trương Văn Phong
 - MSSV: 2A202604091
-- Email: (cần điền)
-- GitHub: (cần điền)
+- Email: phongtruongvan2005@gmail.com
+- GitHub: vanphong205
 
 ## 2. Phần việc phụ trách
 
