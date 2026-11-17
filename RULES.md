@@ -6,7 +6,7 @@
 - Được dùng trợ lý AI (ChatGPT, Claude, Gemini, Copilot, Cursor…) để giải thích khái niệm, gợi ý code, viết test và đọc trace.
 - Nhóm phải tự giải thích được: vì sao chọn shape trong ADR, ranh giới code / model trong shape của mình, vì sao truyền quote đầy đủ vào `durability.issue_refund`, và trace của nhóm cố ý không ghi field nào. Người chấm có thể hỏi trực tiếp các phần này.
 - Mỗi thành viên ghi công cụ AI đã dùng và cách tự kiểm tra kết quả trong báo cáo cá nhân `report/team/MSSV_HoTen.md`.
-- Không dùng AI để bịa số liệu benchmark, run id, commit.
+- Không dùng AI để bịa số liệu benchmark, run id, commit hay phần tự đánh giá.
 
 ## Làm bài và liêm chính
 
